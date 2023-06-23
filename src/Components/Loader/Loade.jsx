@@ -1,5 +1,9 @@
-import Loader from "../../assets/Loader.svg";
 import { LoaderStyld } from "./LoaderStyled";
+import { Oval } from "react-loader-spinner";
 export const Loade = () => {
-  return <LoaderStyld src={Loader} alt="Loader" />;
+  return (
+    <LoaderStyld>
+      <Oval color="white" />;
+    </LoaderStyld>
+  );
 };

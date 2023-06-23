@@ -1,32 +1,14 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const Lod = keyframes`
-
-from {
-    transform: rotate(0deg);
- 
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-export const LoaderStyld = styled.img`
-  max-width: max-content;
-  height: 5rem;
-  font-size: 64rem;
-  object-fit: cover;
+export const LoaderStyld = styled.div`
+  height: 6rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: fixed;
-  top: 40%;
-  left: 45%;
+  top: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  animation-name: ${Lod};
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
 `;

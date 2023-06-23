@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Err } from "../Error/Error";
 import { HandleError } from "../Error/HandleError";
 
 export class Api {
@@ -16,11 +15,17 @@ export class Api {
       },
     };
     try {
-      const res = await this.axios.get("/data", config);
+      const res = await this.axios.get("/data?_limit=3", config);
       return res.data;
     } catch (err) {
-      Err(err.status);
-      throw new HandleError();
+      try {
+        throw new HandleError(
+          "O servidor não conseguiu responder por agora, tente novamente mais tarde.",
+          500
+        );
+      } catch (err) {
+        console.log(err.message);
+      }
     }
   }
 }

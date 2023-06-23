@@ -16,8 +16,8 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     body{
-        background: ${(Themes) => Themes.theme.colors.tertiary};
         height: 100vh;
+        background: ${(Themes) => Themes.theme.colors.tertiary};
         font-family: ${(Themes) => Themes.theme.fonts.primary};
     }
 

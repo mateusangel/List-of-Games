@@ -1,41 +1,48 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../Components/Header/Header";
-import { Api } from "../../Service/Api";
+import { fetchDataAsync } from "../../func/fetchDataAsync";
 import { Loade } from "../../Components/Loader/Loade";
+import { MainStyled } from "../../Components/Main/MainStyled";
+import { Card } from "../../Components/Cards/Card";
+
+import { Modal } from "../../Components/ModalError/Modal";
 
 export function App() {
-  const [verdadeiro, setfalso] = useState(false);
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      const api = new Api();
-      try {
-        const timeoutPromise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            reject(
-              new Error("O servidor demorou para responder, tente mais tarde")
-            );
-            setfalso(true);
-          }, 5000);
-          return;
-        });
-        const resultado = await Promise.race([api.Cadastro(), timeoutPromise]);
-        setfalso(true);
-        console.log(resultado);
-        return resultado;
-      } catch (err) {
-        setfalso(true);
-        console.error(err.message);
-        return;
-      }
-    };
+  const [carregando, setCarregando] = useState(true);
+  const [result, setresult] = useState([]);
+  const [error, seterro] = useState("");
 
-    fetchDataAsync();
+  useEffect(() => {
+    fetchData();
   }, []);
+
+  async function fetchData() {
+    try {
+      const resultado = await fetchDataAsync();
+      setresult(resultado);
+    } catch (err) {
+      seterro(err.message);
+    } finally {
+      setCarregando(false);
+    }
+  }
 
   return (
     <>
-      {verdadeiro ? verdadeiro : <Loade />}
       <Header />
+      {carregando ? (
+        <Loade />
+      ) : (
+        <MainStyled>
+          {result.map((res) => (
+            <Card key={res.id}>
+              <h1>{res.title}</h1>
+              <img src={res.thumbnail} alt={res.short_description} />
+            </Card>
+          ))}
+        </MainStyled>
+      )}
+      {error && <Modal>{error}</Modal>}
     </>
   );
 }
