@@ -9,7 +9,7 @@ export function Header() {
         <h1>List of Games</h1>
       </LogoStyled>
       <div className="Input">
-        <input type="text" />
+        <input type="text" placeholder="Digite o Nome do Filme" />
         <BiSearchAlt className="icon" />
       </div>
     </HeaderStyled>
