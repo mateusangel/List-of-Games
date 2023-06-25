@@ -26,14 +26,14 @@ export const ReduceFn = (state, action) => {
     case "SUCCESS":
       return {
         ...state,
-        load: false, // Definir load como falso quando as informações forem carregadas com sucesso
+        load: false,
         gameDetails: action.payload,
         errorGame: null,
       };
     case "ERROR":
       return {
         ...state,
-        load: false, // Definir load como falso em caso de erro
+        load: false,
         errorGame: action.payload,
       };
     default:

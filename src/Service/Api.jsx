@@ -24,7 +24,7 @@ export class Api {
           500
         );
       } catch (err) {
-        console.log(err.message);
+        return;
       }
     }
   }

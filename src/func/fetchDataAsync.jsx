@@ -12,7 +12,6 @@ export async function fetchDataAsync() {
       }, 5000);
     });
     const resultado = await Promise.race([api.Cadastro(), timeoutPromise]);
-    console.log(resultado);
     return resultado;
   } catch (err) {
     if (err.status > 500 && err.status < 509) {

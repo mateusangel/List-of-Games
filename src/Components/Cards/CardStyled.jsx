@@ -12,6 +12,7 @@ export const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: -webkit-fill-available;
 
   img {
     margin-top: 1rem;
