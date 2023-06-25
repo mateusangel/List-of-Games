@@ -8,6 +8,7 @@ export const CardStyled = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  max-height: fit-content;
 
   display: flex;
   flex-direction: column;
