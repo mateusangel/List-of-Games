@@ -36,6 +36,11 @@ export const ReduceFn = (state, action) => {
         load: false,
         errorGame: action.payload,
       };
+    case "SET_SELECTED_CARD":
+      return {
+        ...state,
+        selectedCard: action.payload,
+      };
     default:
       return state;
   }

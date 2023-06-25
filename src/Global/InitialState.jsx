@@ -5,4 +5,5 @@ export const InitialState = {
   selectedGenre: null,
   apiLoaded: false,
   searchText: "",
+  selectedCard: null,
 };

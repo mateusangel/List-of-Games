@@ -14,7 +14,17 @@ export async function fetchDataAsync() {
     const resultado = await Promise.race([api.Cadastro(), timeoutPromise]);
     return resultado;
   } catch (err) {
-    if (err.status > 500 && err.status < 509) {
+    if (
+      err.response &&
+      err.response.data &&
+      err.response.data.error ===
+        'You must send your email address in "dev-email-address" header'
+    ) {
+      throw new CustomError(
+        'É necessário enviar o endereço de e-mail no cabeçalho "dev-email-address"',
+        521
+      );
+    } else if (err.status > 500 && err.status < 509) {
       throw new CustomError(
         "O servidor falhou em responder, tente recarregar a página.",
         err.status

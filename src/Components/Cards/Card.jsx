@@ -1,8 +1,9 @@
 import { CardStyled } from "./CardStyled";
+
 // eslint-disable-next-line react/prop-types
-export const Card = ({ children }) => {
+export const Card = ({ children, onClick }) => {
   return (
-    <CardStyled>
+    <CardStyled onClick={onClick}>
       <div>{children}</div>
     </CardStyled>
   );

@@ -12,10 +12,19 @@ import { Input } from "../../Components/input/Input";
 
 import { InitialState } from "../../Global/InitialState";
 import { ReduceFn } from "../../Reduce/ReduceFn";
+import { ModalDescription } from "../../Components/ModalDescription/ModalDescription";
 
 export function App() {
   const [state, dispatch] = useReducer(ReduceFn, InitialState);
-  const { load, result, error, selectedGenre, apiLoaded, searchText } = state;
+  const {
+    load,
+    result,
+    error,
+    selectedGenre,
+    apiLoaded,
+    searchText,
+    selectedCard,
+  } = state;
 
   useEffect(() => {
     fetchData();
@@ -42,6 +51,10 @@ export function App() {
     res.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  function handleModalDescription(card) {
+    dispatch({ type: "SET_SELECTED_CARD", payload: card });
+  }
+
   return (
     <>
       <Header>
@@ -49,6 +62,12 @@ export function App() {
         <Input onChange={handleSearchTextChange} />
       </Header>
       <Selection onChange={handleGenreChange} />
+      {selectedCard && (
+        <ModalDescription
+          selectedCard={selectedCard}
+          onClose={handleModalDescription}
+        />
+      )}
       {load ? (
         <Loade />
       ) : (
@@ -58,7 +77,7 @@ export function App() {
               selectedGenre ? res.genre === selectedGenre : true
             )
             .map((res) => (
-              <Card key={res.id}>
+              <Card key={res.id} onClick={() => handleModalDescription(res)}>
                 <h1>{res.title}</h1>
                 <p>{res.genre}</p>
                 <h3>{res.publisher}</h3>
@@ -73,3 +92,4 @@ export function App() {
     </>
   );
 }
+
