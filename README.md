@@ -9,7 +9,7 @@ Uma aplicação web que permite aos usuários visualizar uma lista de jogos, fil
 
 ## Visão Geral  :eyeglasses: 
 
-O projeto de lista de jogos é uma aplicação web desenvolvida usando a biblioteca React. Ele permite aos usuários visualizar uma lista de jogos, filtrar por gênero e pesquisar por título. A lista de jogos é consumida de uma API usando o Axios para realizar requisições HTTP. O projeto utiliza várias bibliotecas para estilização e funcionalidades adicionais, incluindo react-select, styled-components, react-loader-spinner e react-icons.
+O projeto de lista de jogos é uma aplicação web desenvolvida usando a biblioteca React. Ele permite aos usuários visualizar uma lista de jogos, filtrar por gênero e pesquisar por título. Para fornecer mais informações sobre os jogos na aplicação, foi adicionado um modal que pode ser acionado ao clicar em um jogo específico. O modal exibe detalhes adicionais sobre o jogo, como descrição, data de lançamento e imagens relacionadas. A lista de jogos é consumida de uma API usando o Axios para realizar requisições HTTP. O projeto utiliza várias bibliotecas para estilização e funcionalidades adicionais, incluindo react-select, styled-components, react-loader-spinner e react-icons.
 
 ## Requisitos
 
