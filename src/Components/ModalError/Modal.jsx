@@ -5,13 +5,13 @@ import { ModalStyled } from "./ModalStyled";
 
 // eslint-disable-next-line react/prop-types
 export const Modal = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isopen, setIsopen] = useState(true);
 
   const closeModal = () => {
-    setIsOpen(false);
+    setIsopen(false);
   };
 
-  return isOpen ? (
+  return isopen ? (
     <ModalStyled>
       <BsXSquareFill className="iconBy" color="black" onClick={closeModal} />
       <h1>{children}</h1>

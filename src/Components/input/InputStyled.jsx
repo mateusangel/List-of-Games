@@ -45,7 +45,7 @@ export const ToggleButton = styled(BiSearchAlt)`
   top: 10px;
   right: 10px;
   font-size: 20px;
-  color: ${({ isOpen }) => (isOpen ? "#1d42cf" : "#ffffff")};
+  color: ${({ isopen }) => (isopen ? "#1d42cf" : "#ffffff")};
   cursor: pointer;
   transition: color 0.3s ease;
   border: none;

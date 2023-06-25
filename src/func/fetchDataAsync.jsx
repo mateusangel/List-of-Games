@@ -24,7 +24,7 @@ export async function fetchDataAsync() {
         'É necessário enviar o endereço de e-mail no cabeçalho "dev-email-address"',
         521
       );
-    } else if (err.status > 500 && err.status < 509) {
+    } else if (err.status > 500 && err.status <= 509) {
       throw new CustomError(
         "O servidor falhou em responder, tente recarregar a página.",
         err.status

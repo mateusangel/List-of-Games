@@ -3,10 +3,10 @@ import { InputContainer, InputField, ToggleButton } from "./InputStyled";
 
 // eslint-disable-next-line react/prop-types
 export const Input = ({ onChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(false);
 
   const toggleInput = () => {
-    setIsOpen(!isOpen);
+    setisOpen(!isOpen);
   };
 
   const handleInputChange = (event) => {
@@ -16,7 +16,7 @@ export const Input = ({ onChange }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsOpen(window.innerWidth <= 498);
+      setisOpen(window.innerWidth <= 498);
     };
 
     handleResize();

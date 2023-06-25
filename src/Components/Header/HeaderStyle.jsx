@@ -19,8 +19,10 @@ export const HeaderStyled = styled.header`
   }
   @media (max-width: 498px) {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    img {
+      height: 4rem;
+    }
+    gap: 3rem;
     justify-content: center;
     align-items: center;
   }

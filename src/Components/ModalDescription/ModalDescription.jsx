@@ -7,18 +7,18 @@ import { ModalDescriptionStyled } from "./ModalDescriptionStyled";
 import { BsXSquareFill } from "react-icons/bs";
 
 export const ModalDescription = ({ selectedCard, onClose }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [Open, setOpen] = useState(true);
 
   const handleClose = () => {
-    setIsOpen(false);
+    setOpen(false);
     onClose();
   };
 
   useEffect(() => {
-    setIsOpen(true);
+    setOpen(true);
   }, [selectedCard]);
 
-  if (!isOpen) return null;
+  if (!Open) return null;
 
   return (
     <ModalDescriptionStyled>

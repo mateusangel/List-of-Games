@@ -10,6 +10,7 @@ export const ModalStyled = styled.div`
   background-color: #000000df;
   color: #ffffff;
 
+  max-width: 100%;
   margin: 0 auto;
   height: 100hv;
 
