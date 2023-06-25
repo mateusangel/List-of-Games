@@ -13,9 +13,6 @@ export class Api {
       headers: {
         "dev-email-address": "mateusangeljr@gmail.com",
       },
-      params: {
-        limit: 20,
-      },
     };
     try {
       const res = await this.axios.get("/data", config);

@@ -14,11 +14,13 @@ export const CardStyled = styled.div`
   align-items: flex-start;
 
   img {
+    margin-top: 1rem;
     width: 100%;
     max-height: 200px;
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease;
   }
 
   h1 {
@@ -46,5 +48,15 @@ export const CardStyled = styled.div`
     margin-top: 0.3rem;
     font-size: 14px;
     color: #999;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 370px) {
+    max-width: 30rem;
   }
 `;

@@ -1,14 +1,44 @@
-import { SelectionStyled } from "./SelectionStyled";
+import Select from "react-select";
+import { useEffect, useState } from "react";
+import { fetchDataAsync } from "../../func/fetchDataAsync";
+import { SelectionStyled } from "../Selection/SelectionStyled";
+// eslint-disable-next-line react/prop-types
+export const Selection = ({ onChange }) => {
+  const [genreOptions, setGenreOptions] = useState([]);
 
-export const Selection = () => {
+  useEffect(() => {
+    fetchGenreOptions();
+  }, []);
+
+  async function fetchGenreOptions() {
+    try {
+      const genres = await fetchDataAsync();
+
+      const uniqueGenres = genres.reduce((unique, genre) => {
+        if (!unique.find((item) => item.value === genre.genre)) {
+          unique.push({ value: genre.genre, label: genre.genre });
+        }
+        return unique;
+      }, []);
+
+      setGenreOptions(uniqueGenres);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function handleGenreChange(selectedOption) {
+    onChange(selectedOption);
+  }
+
   return (
     <SelectionStyled>
-      <label htmlFor="escolha">genre:</label>
-      <select name="genre">
-        <option value="opcao1">Opção 1</option>
-        <option value="opcao2">Opção 2</option>
-        <option value="opcao3">Opção 3</option>
-      </select>
+      <Select
+        placeholder={"Genre"}
+        options={genreOptions}
+        onChange={handleGenreChange}
+        isClearable={true}
+      />
     </SelectionStyled>
   );
 };

@@ -11,45 +11,17 @@ export const HeaderStyled = styled.header`
 
   margin: 4rem 10rem;
 
-  .Input {
-    width: 25rem;
-    height: 3rem;
-
-    background-color: #ffffff;
-    border-radius: 1rem;
-
-    padding-right: 1rem;
-
+  @media (max-width: 715px) {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-
-    input {
-      outline: none;
-
-      border-radius: 1rem;
-      border: none;
-
-      padding-left: 1rem;
-      margin-left: 1rem;
-    }
-    .icon {
-      cursor: pointer;
-    }
+    align-items: center;
   }
-`;
-
-export const LogoStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  img {
-    object-fit: contain;
-
-    height: 5rem;
-  }
-  h1 {
-    color: ${(themes) => themes.theme.colors.secondary};
+  @media (max-width: 498px) {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
   }
 `;

@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 export const ModalStyled = styled.div`
   position: fixed;
@@ -34,13 +34,20 @@ export const ModalStyled = styled.div`
 
     background-color: #ffffff;
     border-radius: 30px;
+
+    @media (max-width: 667px) {
+      width: 80%;
+    }
   }
 
   .iconErr {
-    font-size: 100px;
+    font-size: 70px;
 
     position: relative;
     bottom: 120px;
+    @media (max-width: 667px) {
+      width: 80%;
+    }
   }
 
   .iconBy {
@@ -52,5 +59,26 @@ export const ModalStyled = styled.div`
     top: 55px;
 
     cursor: pointer;
+
+    @media (max-width: 667px) {
+      left: 140px;
+      width: 80%;
+    }
+    @media (max-width: 524px) {
+      left: 100px;
+      width: 80%;
+    }
+    @media (max-width: 524px) {
+      left: 100px;
+      width: 80%;
+    }
+    @media (max-width: 404px) {
+      left: 60px;
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 667px) {
+    width: 80%;
   }
 `;
